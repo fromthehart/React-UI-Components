@@ -1,0 +1,21 @@
+/* 
+  Write your styles/CSS for App.js here and import into the component that you need 
+  IF you'd like to attempt to use less you'll have to research how to do this with Create React App
+*/
+
+$body-text: black;
+
+.app {
+  width: 600px;
+  max-width: 100%;
+  color: $body-text;
+  line-height: 1.6rem;
+
+  a {
+    text-decoration: none;
+    color: $body-text;
+    &:visited {
+      color: $body-text;
+    }
+  }
+}

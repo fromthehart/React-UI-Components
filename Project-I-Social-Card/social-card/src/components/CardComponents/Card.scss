@@ -1,0 +1,24 @@
+/* All styles for your Card Components live here */
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  width: 520px;
+  max-width: 100%;
+  margin-left: 70px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+
+  .card-banner {
+    max-width: 100%;
+  }
+
+  .card-content {
+    padding: 5px 15px;
+    font-size: 1.4rem;
+
+    .card-link {
+      color: grey;
+    }
+  }
+}  
