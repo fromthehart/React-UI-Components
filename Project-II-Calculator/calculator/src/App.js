@@ -20,15 +20,19 @@ class App extends React.Component {
     // Save our button press temporarily, after replacing any invalid math operation symbols with ones Javascript understands
     const key = event.target.textContent.replace('×', '*').replace('÷', '/')
 
+    // Clear display and key buffer when 'Clear' key is pressed
     if (key === 'clear') {
       this.setState({calcDisplay: '0', keyPress: '', actionKey: false})
-    } else if (key === '=' && !this.state.actionKey) {
+    // Handle equals key
+    } else if (key === '=' && !this.state.actionKey && this.state.calcDisplay !== '0') {
       this.setState({calcDisplay: eval(this.state.keyPress), actionKey: false})
       this.setState({keyPress: eval(this.state.keyPress)})      
-    } else if ('0123456789'.includes(key)) {
+    // Add number keys to the display and key buffer
+    } else if ('0123456789'.includes(key) ) {
       this.setState({keyPress: `${this.state.keyPress}${key}`, calcDisplay: `${this.state.keyPress}${key}`, actionKey: false})
-    } else if (!this.state.actionKey) {
-      this.setState({keyPress: `${this.state.keyPress}${key}`, calcDisplay: `${this.state.keyPress}${key}`, actionKey: true})
+    // Handle math operator keys
+    } else if (!this.state.actionKey && key !== '=') {
+      this.setState({keyPress: `${eval(this.state.calcDisplay)}${key}`, calcDisplay: eval(this.state.calcDisplay), actionKey: true})
     }
   }
 
